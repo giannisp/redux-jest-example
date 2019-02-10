@@ -52,7 +52,7 @@ const notesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loading: false,
-        notes: state.notes.map((note) => {
+        notes: state.notes.map(note => {
           if (note.id !== action.note.id) {
             return note;
           }

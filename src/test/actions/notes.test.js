@@ -46,9 +46,7 @@ describe('Notes action', () => {
       },
     ];
 
-    axiosMock
-      .onGet(`${API_BASE_URL}/notes`)
-      .reply(200, { notes });
+    axiosMock.onGet(`${API_BASE_URL}/notes`).reply(200, { notes });
 
     const expectedActions = [
       { type: NOTES_FETCH_REQUEST },
@@ -65,9 +63,7 @@ describe('Notes action', () => {
   it('should dispatch NOTES_FETCH_FAILURE on fetchNotes error', async () => {
     const error = { message: '401 Unauthorized' };
 
-    axiosMock
-      .onGet(`${API_BASE_URL}/notes`)
-      .reply(401, error);
+    axiosMock.onGet(`${API_BASE_URL}/notes`).reply(401, error);
 
     const expectedActions = [
       { type: NOTES_FETCH_REQUEST },
@@ -88,9 +84,7 @@ describe('Notes action', () => {
       id: faker.random.uuid(),
     };
 
-    axiosMock
-      .onPost(`${API_BASE_URL}/note/add`, data)
-      .reply(200, { note });
+    axiosMock.onPost(`${API_BASE_URL}/note/add`, data).reply(200, { note });
 
     const expectedActions = [
       { type: NOTE_ADD_REQUEST },
@@ -108,9 +102,7 @@ describe('Notes action', () => {
     const data = { message: faker.lorem.words() };
     const error = { message: '401 Unauthorized' };
 
-    axiosMock
-      .onPost(`${API_BASE_URL}/note/add`, data)
-      .reply(401, error);
+    axiosMock.onPost(`${API_BASE_URL}/note/add`, data).reply(401, error);
 
     const expectedActions = [
       { type: NOTE_ADD_REQUEST },
@@ -130,9 +122,7 @@ describe('Notes action', () => {
       message: faker.lorem.words(),
     };
 
-    axiosMock
-      .onPost(`${API_BASE_URL}/note/update`, note)
-      .reply(200, { note });
+    axiosMock.onPost(`${API_BASE_URL}/note/update`, note).reply(200, { note });
 
     const expectedActions = [
       { type: NOTE_UPDATE_REQUEST },
@@ -153,9 +143,7 @@ describe('Notes action', () => {
     };
     const error = { message: '401 Unauthorized' };
 
-    axiosMock
-      .onPost(`${API_BASE_URL}/note/update`, note)
-      .reply(401, error);
+    axiosMock.onPost(`${API_BASE_URL}/note/update`, note).reply(401, error);
 
     const expectedActions = [
       { type: NOTE_UPDATE_REQUEST },
@@ -178,9 +166,7 @@ describe('Notes action', () => {
       success: true,
     };
 
-    axiosMock
-      .onPost(`${API_BASE_URL}/note/delete`, data)
-      .reply(200, response);
+    axiosMock.onPost(`${API_BASE_URL}/note/delete`, data).reply(200, response);
 
     const expectedActions = [
       { type: NOTE_DELETE_REQUEST },
@@ -200,9 +186,7 @@ describe('Notes action', () => {
     };
     const error = { message: '401 Unauthorized' };
 
-    axiosMock
-      .onPost(`${API_BASE_URL}/note/delete`, data)
-      .reply(401, error);
+    axiosMock.onPost(`${API_BASE_URL}/note/delete`, data).reply(401, error);
 
     const expectedActions = [
       { type: NOTE_DELETE_REQUEST },

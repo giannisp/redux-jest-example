@@ -23,15 +23,15 @@ const fetchNotesRequest = () => {
   return { type: NOTES_FETCH_REQUEST };
 };
 
-const fetchNotesSuccess = (notes) => {
+const fetchNotesSuccess = notes => {
   return { type: NOTES_FETCH_SUCCESS, notes };
 };
 
-const fetchNotesFailure = (error) => {
+const fetchNotesFailure = error => {
   return { type: NOTES_FETCH_FAILURE, error };
 };
 
-export const fetchNotes = () => async (dispatch) => {
+export const fetchNotes = () => async dispatch => {
   dispatch(fetchNotesRequest());
 
   try {
@@ -46,15 +46,15 @@ const addNoteRequest = () => {
   return { type: NOTE_ADD_REQUEST };
 };
 
-const addNoteSuccess = (note) => {
+const addNoteSuccess = note => {
   return { type: NOTE_ADD_SUCCESS, note };
 };
 
-const addNoteFailure = (error) => {
+const addNoteFailure = error => {
   return { type: NOTE_ADD_FAILURE, error };
 };
 
-export const addNote = note => async (dispatch) => {
+export const addNote = note => async dispatch => {
   dispatch(addNoteRequest());
 
   try {
@@ -69,15 +69,15 @@ const updateNoteRequest = () => {
   return { type: NOTE_UPDATE_REQUEST };
 };
 
-const updateNoteSuccess = (note) => {
+const updateNoteSuccess = note => {
   return { type: NOTE_UPDATE_SUCCESS, note };
 };
 
-const updateNoteFailure = (error) => {
+const updateNoteFailure = error => {
   return { type: NOTE_UPDATE_FAILURE, error };
 };
 
-export const updateNote = note => async (dispatch) => {
+export const updateNote = note => async dispatch => {
   dispatch(updateNoteRequest());
 
   try {
@@ -92,19 +92,21 @@ const deleteNoteRequest = () => {
   return { type: NOTE_DELETE_REQUEST };
 };
 
-const deleteNoteSuccess = (noteId) => {
+const deleteNoteSuccess = noteId => {
   return { type: NOTE_DELETE_SUCCESS, noteId };
 };
 
-const deleteNoteFailure = (error) => {
+const deleteNoteFailure = error => {
   return { type: NOTE_DELETE_FAILURE, error };
 };
 
-export const deleteNote = noteId => async (dispatch) => {
+export const deleteNote = noteId => async dispatch => {
   dispatch(deleteNoteRequest());
 
   try {
-    const response = await axios.post(`${API_BASE_URL}/note/delete`, { id: noteId });
+    const response = await axios.post(`${API_BASE_URL}/note/delete`, {
+      id: noteId,
+    });
     dispatch(deleteNoteSuccess(response.data.id));
   } catch ({ response }) {
     dispatch(deleteNoteFailure(response.data));

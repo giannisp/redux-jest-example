@@ -26,11 +26,16 @@ describe('Notes reducer', () => {
   });
 
   it('should handle NOTES_FETCH_REQUEST', () => {
-    expect(reducer({
-      ...initialState,
-    }, {
-      type: NOTES_FETCH_REQUEST,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+        },
+        {
+          type: NOTES_FETCH_REQUEST,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: true,
     });
@@ -44,13 +49,18 @@ describe('Notes reducer', () => {
       },
     ];
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-    }, {
-      type: NOTES_FETCH_SUCCESS,
-      notes,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+        },
+        {
+          type: NOTES_FETCH_SUCCESS,
+          notes,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       notes,
@@ -60,13 +70,18 @@ describe('Notes reducer', () => {
   it('should handle NOTES_FETCH_FAILURE', () => {
     const error = { message: '401 Unauthorized' };
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-    }, {
-      type: NOTES_FETCH_FAILURE,
-      error,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+        },
+        {
+          type: NOTES_FETCH_FAILURE,
+          error,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       error,
@@ -74,11 +89,16 @@ describe('Notes reducer', () => {
   });
 
   it('should handle NOTE_ADD_REQUEST', () => {
-    expect(reducer({
-      ...initialState,
-    }, {
-      type: NOTE_ADD_REQUEST,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+        },
+        {
+          type: NOTE_ADD_REQUEST,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: true,
     });
@@ -90,13 +110,18 @@ describe('Notes reducer', () => {
       message: faker.lorem.words(),
     };
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-    }, {
-      type: NOTE_ADD_SUCCESS,
-      note,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+        },
+        {
+          type: NOTE_ADD_SUCCESS,
+          note,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       notes: [note],
@@ -106,13 +131,18 @@ describe('Notes reducer', () => {
   it('should handle NOTE_ADD_FAILURE', () => {
     const error = { message: '401 Unauthorized' };
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-    }, {
-      type: NOTE_ADD_FAILURE,
-      error,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+        },
+        {
+          type: NOTE_ADD_FAILURE,
+          error,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       error,
@@ -120,11 +150,16 @@ describe('Notes reducer', () => {
   });
 
   it('should handle NOTE_UPDATE_REQUEST', () => {
-    expect(reducer({
-      ...initialState,
-    }, {
-      type: NOTE_UPDATE_REQUEST,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+        },
+        {
+          type: NOTE_UPDATE_REQUEST,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: true,
     });
@@ -141,14 +176,19 @@ describe('Notes reducer', () => {
       message: faker.lorem.words(),
     };
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-      notes: [note],
-    }, {
-      type: NOTE_UPDATE_SUCCESS,
-      note: updatedNote,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+          notes: [note],
+        },
+        {
+          type: NOTE_UPDATE_SUCCESS,
+          note: updatedNote,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       notes: [updatedNote],
@@ -158,13 +198,18 @@ describe('Notes reducer', () => {
   it('should handle NOTE_UPDATE_FAILURE', () => {
     const error = { message: '401 Unauthorized' };
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-    }, {
-      type: NOTE_UPDATE_FAILURE,
-      error,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+        },
+        {
+          type: NOTE_UPDATE_FAILURE,
+          error,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       error,
@@ -172,11 +217,16 @@ describe('Notes reducer', () => {
   });
 
   it('should handle NOTE_DELETE_REQUEST', () => {
-    expect(reducer({
-      ...initialState,
-    }, {
-      type: NOTE_DELETE_REQUEST,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+        },
+        {
+          type: NOTE_DELETE_REQUEST,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: true,
     });
@@ -188,14 +238,19 @@ describe('Notes reducer', () => {
       message: faker.lorem.words(),
     };
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-      notes: [note],
-    }, {
-      type: NOTE_DELETE_SUCCESS,
-      noteId: note.id,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+          notes: [note],
+        },
+        {
+          type: NOTE_DELETE_SUCCESS,
+          noteId: note.id,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       notes: [],
@@ -205,13 +260,18 @@ describe('Notes reducer', () => {
   it('should handle NOTE_DELETE_FAILURE', () => {
     const error = { message: '401 Unauthorized' };
 
-    expect(reducer({
-      ...initialState,
-      loading: true,
-    }, {
-      type: NOTE_DELETE_FAILURE,
-      error,
-    })).toEqual({
+    expect(
+      reducer(
+        {
+          ...initialState,
+          loading: true,
+        },
+        {
+          type: NOTE_DELETE_FAILURE,
+          error,
+        },
+      ),
+    ).toEqual({
       ...initialState,
       loading: false,
       error,

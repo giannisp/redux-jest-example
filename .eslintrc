@@ -1,21 +1,13 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "plugins": ["babel"],
   "parser": "babel-eslint",
-  "plugins": [
-    "babel"
-  ],
   "env": {
     "browser": true
   },
   "rules": {
     "arrow-body-style": 0,
-    "babel/semi": 2,
-    "import/prefer-default-export": 0,
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/prefer-default-export": 0
   }
 }
